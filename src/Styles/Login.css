@@ -1,0 +1,67 @@
+  :root{
+    --mainbg:#fff2e1;
+  }
+ 
+  .container{
+   
+    margin-top: -50px;
+  }
+  .loginbg{
+    background-color: #F7EEDD
+    
+  }
+  
+  input:focus, button:focus {
+    /* border: 1px solid black !important; */
+    box-shadow: none !important;
+  }
+
+  .form-check-input:checked {
+    /* background-color: var(--main-bg) !important; */
+    /* border-color: var(--main-bg) !important; */
+  }
+  
+  .inputicon{
+    padding-right: 4px !important;
+  }
+  .card{
+    margin-top: 10vh !important;
+    width: 420px !important;
+    /* background-color: #ed8803; */
+  }
+  .loginbutton{
+    border-radius: 100px !important;
+    width: 200px;
+    background-color: #0388ed !important;
+    
+  }
+  .wrapper{
+    position: absolute;
+    
+  }
+  .errmsg{
+    color: red;
+    font-size: small;
+    /* visibility: hidden; */
+  }
+  .servererrmsg{
+    visibility: hidden;
+    padding: -10px;
+    /* margin: -55px; */
+    position: relative;
+    /* bottom: .7vh; */
+    top:4vh
+  }
+  .head{
+    margin-top: 3vh;
+    margin-left: 0;
+    margin-bottom: -5vh;
+  }
+ 
+  @media only screen and (max-width: 1024px) {
+
+    .card{
+      width: 320px !important;
+      
+    }
+  }

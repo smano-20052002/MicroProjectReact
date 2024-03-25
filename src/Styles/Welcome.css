@@ -1,0 +1,19 @@
+.welcomebg{
+    background-color: #F0EDCF;
+    
+    margin-top: -2vh;
+}
+.mainbox{
+    width:300px;
+    background-color:azurewhite;
+    border:solid 1px #333;
+    height:100px;
+    border-radius:10px;
+    box-shadow:3px 3px 15px;
+}
+.inputreq{
+    position: relative;
+    left: 50%;
+    transform: translate(-50%);
+}
+

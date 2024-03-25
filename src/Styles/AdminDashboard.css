@@ -1,0 +1,16 @@
+.mainbox{
+    width:250px;
+    background-color:azurewhite;
+    border:solid 1px #333;
+    height:100px;
+    border-radius:10px;
+    box-shadow:3px 3px 15px;
+}
+.subbox{
+    width:200px;
+    background-color:azurewhite;
+    border:solid 1px #333;
+    height:60px;
+    border-radius:10px;
+    box-shadow:3px 3px 15px;
+}

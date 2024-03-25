@@ -1,0 +1,52 @@
+:root{
+    --mainbg:#fff2e1;
+  }
+  
+  .container{
+    margin-top: -50px;
+  }
+  
+  input:focus, button:focus {
+    /* border: 1px solid var(--mainbg) !important; */
+    box-shadow: none !important;
+  }
+
+  .form-check-input:checked {
+    /* background-color: var(--main-bg) !important; */
+    /* border-color: var(--main-bg) !important; */
+  }
+  
+  
+  .card{
+    margin-top: -2vh;
+    width: 30vw;
+  }
+  .registerbutton{
+    border-radius: 100px !important;
+    width: 200px;
+    background-color: #0388ed !important;
+    
+  }
+  .errmsg{
+    color: red;
+    font-size: small;
+    /* visibility: hidden; */
+  }
+  .servererrmsg{
+    visibility: hidden;
+    padding: -10px;
+    /* margin: -55px; */
+    position: relative;
+    /* bottom: .7vh; */
+    top:4vh
+  }
+  .head{
+    margin-top: 3vh;
+    margin-bottom: -5vh;
+  }
+  .profile{
+    position: relative;
+    top: 2vh;
+    left: 12.5vw;
+    z-index: 2;
+  }

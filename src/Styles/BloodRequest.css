@@ -1,0 +1,32 @@
+.tablebody {
+    overflow: auto !important;
+    height: 510px !important;
+    margin-top: 5vh;
+}
+.donortablebody{
+    width: 70vw;
+    margin-left: 15vw;
+    background-color: aliceblue;
+    padding: 30px;
+    border-radius: 20px;
+}
+.document:hover{
+    position: absolute;
+    width: 400px;
+    height: 600px;
+}
+.rowbody{
+    background-color: transparent !important;
+}
+.rowbody tr td{
+    background-color: transparent !important;
+
+}
+.rowbody tr th{
+    background-color: transparent !important;
+
+}
+.btn {
+    padding: 2px !important;
+    margin-right: 5px;
+}
