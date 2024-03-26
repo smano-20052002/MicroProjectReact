@@ -20,6 +20,7 @@ function formatDate(date) {
 function UpdateBloodTransaction() {
   const serverref=useRef();
  const navigate= useNavigate();
+ const [bloodstockform,setBloodStockForm]=useState(0)
   const [BloodTransaction, setBloodTransaction] = useState(
     {
       "bloodTransactionId": "string",
@@ -34,7 +35,14 @@ function UpdateBloodTransaction() {
   const requestref = useRef();
   const typeref = useRef();
   const unitsref = useRef();
-  
+   const getstock=(type)=>{
+        setBloodTransaction({...BloodTransaction,units:0})
+        axios.get(`https://localhost:7089/api/BloodStock/GetStockByBank/`+Cookies.get("Id")+`/`+type).then((Response)=>{
+            console.log(Response.data)
+            setBloodStockForm(Response.data)
+
+        })
+    }
 
   const AddBloodTransaction = (e) => {
     e.preventDefault();
@@ -97,7 +105,7 @@ function UpdateBloodTransaction() {
 
 
           <label for="requesterid" class="form-label">Blood Requester Id</label>
-          <input type="text" class="form-control" id="requesterid" placeholder='Blood Requester Id' value={BloodTransaction.bloodRequestId} onChange={(e) => setBloodTransaction({ ...BloodTransaction, bloodRequestId: e.target.value })} />
+          <input type="text" class="form-control" id="requesterid" placeholder='Blood Requester Id' value={BloodTransaction.bloodRequestId} onChange={(e) => {setBloodTransaction({ ...BloodTransaction, bloodRequestId: e.target.value });}} />
           <label ref={requestref} className='errmsg'></label>
 
         </div>
@@ -105,7 +113,7 @@ function UpdateBloodTransaction() {
 
 
           <label for="bloodtype" class="form-label">Blood Type</label>
-          <select className="form-control" id="bloodtype" value={BloodTransaction.bloodType} onChange={(e) => setBloodTransaction({ ...BloodTransaction, bloodType: e.target.value })}>
+          <select className="form-control" id="bloodtype" value={BloodTransaction.bloodType} onChange={(e) => {setBloodTransaction({ ...BloodTransaction, bloodType: e.target.value });getstock(e.target.value)}}>
   <option value="A+ve">A+ve</option>
   <option value="B+ve">B+ve</option>
                         <option value="AB+ve">AB+ve</option>
@@ -121,7 +129,7 @@ function UpdateBloodTransaction() {
 
           <div>
             <label for="units" class="form-label">Blood Units</label>
-            <input type="number" class="form-control" id="units" placeholder='Blood Units' value={BloodTransaction.units} min="1" onChange={(e) => setBloodTransaction({ ...BloodTransaction, units: e.target.value })} />
+            <input type="number" class="form-control" id="units" placeholder='Blood Units' value={BloodTransaction.units} min="0" max={bloodstockform} onChange={(e) => {setBloodTransaction({ ...BloodTransaction, units: e.target.value });}} />
             <label ref={unitsref} className='errmsg'></label>
           </div>
         </div>

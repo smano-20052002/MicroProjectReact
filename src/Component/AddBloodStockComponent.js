@@ -1,9 +1,8 @@
 import axios from 'axios';
 import Cookies from 'js-cookie';
-import React, { useState, useRef } from 'react'
+import React, { useState, useRef, useEffect } from 'react'
 
 function AddBloodStockComponent() {
-
     const [BloodStock, setBloodStock] = useState(
         {
             "bloodStockId": "",
@@ -15,8 +14,8 @@ function AddBloodStockComponent() {
     const typeref = useRef();
     const unitref = useRef();
     const serverref=useRef();
-
-
+   
+   
     const AddBloodStock = (e) => {
         e.preventDefault();
         if (BloodStock.bloodType == "" || BloodStock.units == 0) {
@@ -66,9 +65,9 @@ function AddBloodStockComponent() {
             <form onSubmit={(e) => AddBloodStock(e)}>
                 <div className="mb-4 mx-4" >
 
-
+            
                     <label for="BloodType" class="form-label">Blood Type</label>
-                    <select className="form-control" id="BloodType" value={BloodStock.bloodType} onChange={(e) => setBloodStock({ ...BloodStock, bloodType: e.target.value })}>
+                    <select className="form-control" id="BloodType" value={BloodStock.bloodType} onChange={(e) => {setBloodStock({ ...BloodStock, bloodType: e.target.value });}}>
 
                         <option value="A+ve">A+ve</option>
                         <option value="B+ve">B+ve</option>
@@ -86,7 +85,7 @@ function AddBloodStockComponent() {
 
                     <div>
                         <label for="Unit" class="form-label">Unit</label>
-                        <input type="number" class="form-control" id="Unit" placeholder='Enter Blood Unit' min="1" value={BloodStock.units} onChange={(e) => setBloodStock({ ...BloodStock, units: e.target.value })} />
+                        <input type="number" class="form-control" id="Unit" placeholder='Enter Blood Unit' min="0"   value={BloodStock.units} onChange={(e) => setBloodStock({ ...BloodStock, units: e.target.value })} />
                         <label ref={unitref} className='errmsg'></label>
                     </div>
                 </div>

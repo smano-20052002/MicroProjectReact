@@ -143,7 +143,7 @@ function RegisterComponent() {
             "state": "",
             "postalCode": ""
           })
-          navigate('/pending')
+          navigate('/pending/0')
 
         } else if (Response.data.emailExists == true || Response.data.mobileNumberExists == true) {
           if (Response.data.mobileNumberExists == true && Response.data.emailExists == true) {
@@ -198,7 +198,7 @@ function RegisterComponent() {
 
           <div>
             <label for="mobile" class="form-label">Mobile Number</label>
-            <input type="number" class="form-control" id="mobile" placeholder='Mobile Number' value={Register.phoneNumber} onChange={(e) => setRegister({ ...Register, phoneNumber: e.target.value })} />
+            <input type="number" class="form-control" id="mobile" placeholder='Mobile Number' min="0" value={Register.phoneNumber} onChange={(e) => setRegister({ ...Register, phoneNumber: e.target.value })} />
             <label ref={phoneNumberref} className='errmsg'></label>
           </div>
         </div>
@@ -230,7 +230,7 @@ function RegisterComponent() {
 
           <div>
             <label for="aadhaarnumber" class="form-label">Representative Aadhaar Number</label>
-            <input type="number" class="form-control" id="aadhaarnumber" placeholder='Aadhaar Number' value={Register.aadhaarNumber} onChange={(e) => setRegister({ ...Register, aadhaarNumber: e.target.value })} />
+            <input type="number" class="form-control" id="aadhaarnumber" placeholder='Aadhaar Number' min="0" value={Register.aadhaarNumber} onChange={(e) => setRegister({ ...Register, aadhaarNumber: e.target.value })} />
             <label ref={aadhaarNumberref} className='errmsg'></label>
           </div>
         </div>

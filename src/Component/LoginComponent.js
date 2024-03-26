@@ -68,7 +68,7 @@ function LoginComponent() {
               }else if(response.data.accountApproval == "reject"){
                   navigate('/reject')
               }else if(response.data.accountApproval == "pending"){
-                navigate('/pending')
+                navigate('/pending/0')
 
               }
             } else {

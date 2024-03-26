@@ -129,7 +129,7 @@ function RegisterDonorComponent() {
             "state": "",
             "postalCode": ""
           })
-          navigate('/pending')
+          navigate('/pending/0')
 
         } else if (Response.data.emailExists == true || Response.mobileNumberExists == true) {
           if (Response.mobileNumberExists == true) {
@@ -184,7 +184,7 @@ function RegisterDonorComponent() {
 
           <div>
             <label for="mobile" class="form-label">Mobile Number</label>
-            <input type="number" class="form-control" id="mobile" placeholder='Mobile Number' value={DonorRequest.phoneNumber} onChange={(e) => setDonorRequest({ ...DonorRequest, phoneNumber: e.target.value })} />
+            <input type="number" class="form-control" id="mobile" placeholder='Mobile Number' min="0" value={DonorRequest.phoneNumber} onChange={(e) => setDonorRequest({ ...DonorRequest, phoneNumber: e.target.value })} />
             <label ref={phoneNumberref} className='errmsg'></label>
           </div>
         </div>
@@ -214,7 +214,7 @@ function RegisterDonorComponent() {
 
           <div>
             <label for="age" class="form-label">Age</label>
-            <input type="number" class="form-control" id="age" placeholder='Age' value={DonorRequest.age} min="15" onChange={(e) => setDonorRequest({ ...DonorRequest, age: e.target.value })} />
+            <input type="number" class="form-control" id="age" placeholder='Age' value={DonorRequest.age} min="15" max="60" onChange={(e) => setDonorRequest({ ...DonorRequest, age: e.target.value })} />
             <label ref={ageref} className='errmsg'></label>
           </div>
         </div>
@@ -230,7 +230,7 @@ function RegisterDonorComponent() {
 
           <div>
             <label for="aadhaarnumber" class="form-label">Aadhaar Number</label>
-            <input type="number" class="form-control" id="aadhaarnumber" placeholder='Aadhaar Number' value={DonorRequest.aadhaarNumber} onChange={(e) => setDonorRequest({ ...DonorRequest, aadhaarNumber: e.target.value })} />
+            <input type="number" class="form-control" id="aadhaarnumber" placeholder='Aadhaar Number' min="0" value={DonorRequest.aadhaarNumber} onChange={(e) => setDonorRequest({ ...DonorRequest, aadhaarNumber: e.target.value })} />
             <label ref={aadhaarNumberref} className='errmsg'></label>
           </div>
         </div>
@@ -278,7 +278,7 @@ function RegisterDonorComponent() {
 
           <div>
             <label for="postalCode" class="form-label">Postal Code</label>
-            <input type="number" class="form-control" id="postalCode" placeholder='Postal Code' value={DonorRequest.postalCode} onChange={(e) => setDonorRequest({ ...DonorRequest, postalCode: e.target.value })} />
+            <input type="number" class="form-control" id="postalCode" placeholder='Postal Code' min="0" value={DonorRequest.postalCode} onChange={(e) => setDonorRequest({ ...DonorRequest, postalCode: e.target.value })} />
             <label ref={postalCoderef} className='errmsg'></label>
           </div>
         </div>

@@ -74,7 +74,7 @@ function AddBloodRequestComponent() {
           setTimeout(() => {
               serverref.current.style.visibility="hidden"
           serverref.current.className="alert alert-danger registerservererr"
-          navigate('/pending')
+          navigate(`/pending/${Response.data}`)
               
           },1000);
         } else {
@@ -154,7 +154,7 @@ function AddBloodRequestComponent() {
 
           <div>
             <label for="age" class="form-label">Blood Requester Age</label>
-            <input type="number" class="form-control" id="age" placeholder='Age' value={BloodRequest.age} min="1" onChange={(e) => setBloodRequest({ ...BloodRequest, age: e.target.value })} />
+            <input type="number" class="form-control" id="age" placeholder='Age' value={BloodRequest.age} min="1" max="99" onChange={(e) => setBloodRequest({ ...BloodRequest, age: e.target.value })} />
             <label ref={ageref} className='errmsg'></label>
           </div>
         </div>
@@ -170,7 +170,7 @@ function AddBloodRequestComponent() {
 
           <div>
             <label for="aadhaarnumber" class="form-label">Aadhaar Number</label>
-            <input type="number" class="form-control" id="aadhaarnumber" placeholder='Aadhaar Number'  value={BloodRequest.aadhaarNumber} onChange={(e) => setBloodRequest({ ...BloodRequest, aadhaarNumber: e.target.value })} />
+            <input type="number" class="form-control" id="aadhaarnumber" placeholder='Aadhaar Number' min="0"  value={BloodRequest.aadhaarNumber} onChange={(e) => setBloodRequest({ ...BloodRequest, aadhaarNumber: e.target.value })} />
             <label ref={aadhaarNumberref} className='errmsg'></label>
           </div>
         </div>

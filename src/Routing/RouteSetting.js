@@ -89,7 +89,7 @@ function RouteSetting() {
                         <Route element={<UnAuthorizedComponent />} path='/unauthorized' />
                         <Route element={<ChangePasswordComponent />} path='/changepassword' />
                         <Route element={<RejectComponent />} path='/reject'></Route>
-                        <Route element={<PendingComponent />} path='/pending'></Route>
+                        <Route element={<PendingComponent />} path='/pending/:id'></Route>
                         <Route element={<RegisterDonorComponent/>} path='/newdonorrequest'></Route>
                         <Route element={<RegisterComponent/>} path='/register'></Route>
                     </Route>
