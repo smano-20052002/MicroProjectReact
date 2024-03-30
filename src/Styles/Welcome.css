@@ -1,6 +1,6 @@
 .welcomebg{
     background-color: #F0EDCF;
-    
+    height: max-content;
     margin-top: -2vh;
 }
 .mainbox{

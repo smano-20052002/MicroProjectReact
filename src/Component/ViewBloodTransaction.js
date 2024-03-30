@@ -13,6 +13,8 @@ function ViewBloodTransaction() {
             setBloodTransaction(response.data);
             console.log(BloodTransaction);
             console.log(response);
+        }).catch((err)=>{
+            console.log(err);
         })
     },[])
   return (
@@ -22,7 +24,7 @@ function ViewBloodTransaction() {
         <div>
                 <section className='tablebody'>
                 <table className="table" style={{"overflow":"auto"}}>
-                    <thead>
+                    <thead className='bg-transparent rowbody'>
                         <tr>
 
                             <th scope="col">Blood Type</th>
@@ -36,7 +38,7 @@ function ViewBloodTransaction() {
                     </thead>
                     <tbody className='bg-transparent rowbody'>
                         {BloodTransaction.map((data) => (
-                             <tr className='bg-transparent'>
+                             <tr className='bg-transparent' data-testid={`row-${data.bloodTransactionId}`}>
                              <th scope="row">{data.bloodType}</th>
                              <td>{data.units}</td>
                              <td>{data.date}</td>

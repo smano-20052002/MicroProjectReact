@@ -120,7 +120,7 @@ function LoginComponent() {
                    </div>
                    <div>
                    <label for="email" class="form-label">Email</label>
-                    <input type="text" class="form-control" id="email" placeholder='Enter your email' value={loginuser.Email} onChange={(e) => setLoginUser({ ...loginuser, Email: e.target.value })} />
+                    <input type="text" class="form-control" id="email" placeholder='Enter your email' data-testid="email-input" value={loginuser.Email} onChange={(e) => setLoginUser({ ...loginuser, Email: e.target.value })} />
                     <label ref={emailerrorref} className='errmsg'></label>
                    </div>
                   </div>
@@ -130,13 +130,13 @@ function LoginComponent() {
                    </div>
                    <div>
                    <label for="password" class="form-label">Password</label>
-                    <input type="password" class="form-control" id="password" placeholder='Enter a password' value={loginuser.Password} onChange={(e) => setLoginUser({ ...loginuser, Password: e.target.value })} />
+                    <input type="password" class="form-control" id="password" data-testid="password-input" placeholder='Enter a password' value={loginuser.Password} onChange={(e) => setLoginUser({ ...loginuser, Password: e.target.value })} />
                     <label ref={pwderrorref} className='errmsg'></label>
                    </div>
                   </div>
 
                   <div class="text-center">
-                    <button type="submit" class="btn text-dark mt-2 btn-primary text-white p-2">Login</button><br />
+                    <button type="submit" class="btn text-dark mt-2 btn-primary text-white p-2" data-testid="login-button">Login</button><br />
                   </div>
                 </form>
               </div>

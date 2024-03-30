@@ -59,7 +59,7 @@ function AddBloodStockComponent() {
     }
     return (
         <div className='mainadmin mainbg'>
-            <h2 className='mt-3 ms-3'>Add Blood Stock</h2>
+            <h2 className='mt-3 ms-3' data-testid="headname">Add Blood Stock</h2>
       <div class="alert alert-danger registerservererr" style={{"marginTop":"-5vh"}} ref={serverref} role="alert"></div>
             <hr />
             <form onSubmit={(e) => AddBloodStock(e)}>
@@ -67,7 +67,7 @@ function AddBloodStockComponent() {
 
             
                     <label for="BloodType" class="form-label">Blood Type</label>
-                    <select className="form-control" id="BloodType" value={BloodStock.bloodType} onChange={(e) => {setBloodStock({ ...BloodStock, bloodType: e.target.value });}}>
+                    <select className="form-control" id="BloodType" value={BloodStock.bloodType} data-testid="BloodType" onChange={(e) => {setBloodStock({ ...BloodStock, bloodType: e.target.value });}}>
 
                         <option value="A+ve">A+ve</option>
                         <option value="B+ve">B+ve</option>
@@ -85,13 +85,13 @@ function AddBloodStockComponent() {
 
                     <div>
                         <label for="Unit" class="form-label">Unit</label>
-                        <input type="number" class="form-control" id="Unit" placeholder='Enter Blood Unit' min="0"   value={BloodStock.units} onChange={(e) => setBloodStock({ ...BloodStock, units: e.target.value })} />
+                        <input type="number" class="form-control" id="Unit" placeholder='Enter Blood Unit' min="0" data-testid="Unit"  value={BloodStock.units} onChange={(e) => setBloodStock({ ...BloodStock, units: parseInt(e.target.value) })} />
                         <label ref={unitref} className='errmsg'></label>
                     </div>
                 </div>
 
                 <div class="text-center">
-                    <button type="submit" class="btn btn-info text-white mt-2  px-5 py-1">Add Blood Stock</button><br />
+                    <button type="submit" class="btn btn-info text-white mt-2  px-5 py-1" data-testid="addbutton">Add Blood Stock</button><br />
                 </div>
             </form>
         </div>

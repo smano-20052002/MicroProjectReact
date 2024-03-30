@@ -80,7 +80,7 @@ function BloodBankRequestComponent() {
                     </thead>
                     <tbody className='bg-transparent rowbody'>
                     {hospital.map((data) => (
-                             <tr className='bg-transparent'>
+                             <tr className='bg-transparent' key={data.id} data-testid={`row-${data.id}`}>
                              <th scope="row">{data.name}</th>
                              <th scope="row">{data.email}</th>
                              <th scope="row">{data.phoneNumber}</th>
@@ -90,8 +90,8 @@ function BloodBankRequestComponent() {
                              <th scope="row">{data.location}</th>
 
                              {data.status==0&&<td>
-                                <button className='btn btn-success' onClick={()=>{handleApprove(data.id)}}>Approve</button>
-                                <button className='btn btn-danger ' onClick={()=>{handleReject(data.id)}}>Reject</button>
+                                <button className='btn btn-success' onClick={()=>{handleApprove(data.id)}} data-testid={`approve-btn-${data.id}`}>Approve</button>
+                                <button className='btn btn-danger ' onClick={()=>{handleReject(data.id)}} data-testid={`reject-btn-${data.id}`}>Reject</button>
                              </td>}
                             
                             

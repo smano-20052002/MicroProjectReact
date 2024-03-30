@@ -69,7 +69,7 @@ function AddBloodCampComponent() {
     }
     return (
         <div className='mainadmin mainbg'>
-            <h2 className='mt-3 ms-3'>Blood Camp</h2>
+            <h2 className='mt-3 ms-3' data-testid="headname">Blood Camp</h2>
       <div class="alert alert-danger registerservererr" style={{"marginTop":"-5vh"}} ref={serverref} role="alert"></div>
             <hr />
             <form onSubmit={(e) => AddBloodCamp(e)}>
@@ -77,7 +77,7 @@ function AddBloodCampComponent() {
 
                    
                         <label for="bloodcampname" class="form-label">Blood Camp Name</label>
-                        <input type="text" class="form-control" id="bloodCampName"  placeholder='Enter camp name' value={BloodCamp.bloodCampName} onChange={(e) => setBloodCamp({ ...BloodCamp, bloodCampName: e.target.value })} />
+                        <input type="text" class="form-control" id="bloodCampName" data-testid="bloodCampName"  placeholder='Enter camp name' value={BloodCamp.bloodCampName} onChange={(e) => setBloodCamp({ ...BloodCamp, bloodCampName: e.target.value })} />
                         <label ref={nameref} className='errmsg'></label>
                     
                 </div>
@@ -85,7 +85,7 @@ function AddBloodCampComponent() {
                    
                     <div>
                         <label for="bloodCampLocation" class="form-label">Blood Camp Location</label>
-                        <input type="text" class="form-control" id="bloodCampLocation"  placeholder='Enter camp location' value={BloodCamp.bloodCampLocation} onChange={(e) => setBloodCamp({ ...BloodCamp, bloodCampLocation: e.target.value })} />
+                        <input type="text" class="form-control" data-testid="bloodCampLocation" id="bloodCampLocation"  placeholder='Enter camp location' value={BloodCamp.bloodCampLocation} onChange={(e) => setBloodCamp({ ...BloodCamp, bloodCampLocation: e.target.value })} />
                         <label ref={locationref} className='errmsg'></label>
                     </div>
                 </div>
@@ -93,7 +93,7 @@ function AddBloodCampComponent() {
                    
                     <div>
                         <label for="date" class="form-label">Date</label>
-                        <input type="date" class="form-control" id="date" placeholder='Enter camp date (30/01/0000)' value={BloodCamp.date} onChange={(e) => setBloodCamp({ ...BloodCamp, date: e.target.value })} />
+                        <input type="date" class="form-control" data-testid="date" id="date" placeholder='Enter camp date (30/01/0000)' value={BloodCamp.date} onChange={(e) => setBloodCamp({ ...BloodCamp, date: e.target.value })} />
                         <label ref={dateref} className='errmsg'></label>
                     </div>
                 </div>
@@ -101,13 +101,13 @@ function AddBloodCampComponent() {
                    
                     <div>
                         <label for="time" class="form-label">Time</label>
-                        <input type="time" class="form-control" id="time" placeholder='Enter camp time (00:00 AM/PM)' value={BloodCamp.time} onChange={(e) => setBloodCamp({ ...BloodCamp, time: e.target.value })} />
+                        <input type="time" class="form-control" data-testid="time" id="time" placeholder='Enter camp time (00:00 AM/PM)' value={BloodCamp.time} onChange={(e) => setBloodCamp({ ...BloodCamp, time: e.target.value })} />
                         <label ref={timeref} className='errmsg'></label>
                     </div>
                 </div>
 
                 <div class="text-center">
-                    <button type="submit" class="btn mt-2 btn-info text-white px-5 py-1">Add Blood Camp</button><br />
+                    <button type="submit" data-testid="bloodcampbtn" class="btn mt-2 btn-info text-white px-5 py-1">Add Blood Camp</button><br />
                 </div>
             </form>
         </div>

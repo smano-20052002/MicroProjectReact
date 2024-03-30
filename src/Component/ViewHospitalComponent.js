@@ -36,7 +36,7 @@ function ViewHospitalComponent() {
                     </thead>
                     <tbody className='bg-transparent rowbody'>
                     {hospital.map((data) => (
-                             <tr className='bg-transparent'>
+                             <tr className='bg-transparent' key={data.id} data-testid={`row-${data.id}`}>
                              <th scope="row">{data.name}</th>
                              <th scope="row">{data.email}</th>
                              <th scope="row">{data.phoneNumber}</th>

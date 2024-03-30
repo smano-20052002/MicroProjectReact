@@ -4,9 +4,9 @@ import '../Styles/Unautorized.css'
 
 function UnAuthorizedComponent() {
   return (
-    <section className='main mainbg'>
+    <section className='main mainbg' data-testid='unauthorized-section'>
         <div  className='UnauthorizedContent'>
-            <img src={unauthorized}/>
+            <img src={unauthorized} data-testid='unauthorized-image'/>
         </div>
     </section>
   )

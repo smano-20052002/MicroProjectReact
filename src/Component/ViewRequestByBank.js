@@ -1,24 +1,26 @@
 import React from 'react'
-import { useEffect,useState } from 'react';
+import { useEffect,useState,useRef } from 'react';
 import axios from 'axios';
 import '../Styles/BloodRequest.css';
 import Cookies from 'js-cookie';
-function BloodRequestComponent() {
+function ViewRequestByBank() {
     // const navigate= useNavigate();
     const [bloodRequest, setBloodRequest] = useState([]);
+    const [isDisabled, setIsDisabled] = useState(false);
+    const dis=useRef();
     useEffect(() => {
-        axios.get(`https://localhost:7089/api/ViewBloodRequest`).then((response) => {
+        axios.get(`https://localhost:7089/Get/`+Cookies.get("Id")).then((response) => {
             setBloodRequest(response.data);
             console.log(bloodRequest);
             console.log(response);
         })
     },[])
-    const handleApprove=(id)=>{
+    const handleAccept=(id)=>{
         const message={
-            id:id,
-            status:true
-        }
-        axios.post(`https://localhost:7089/api/ApproveBloodRequestByAdmin`,message,{
+            requesterId: id,
+            accountId: Cookies.get("Id")
+          }
+        axios.post(`https://localhost:7089/api/AcceptRequesterByBank`,message,{
             headers: {
               'Authorization': 'Bearer ' + Cookies.get('Token')
             }}).then((response)=>{
@@ -30,40 +32,17 @@ function BloodRequestComponent() {
             }else{
                 console.log("failure");
             }
+            //setIsDisabled(true);
         })
-        axios.get(`https://localhost:7089/api/ViewBloodRequest`).then((response) => {
+       setTimeout(() => {
+        axios.get(`https://localhost:7089/Get/`+Cookies.get("Id")).then((response) => {
             setBloodRequest(response.data);
             console.log(bloodRequest);
             console.log(response);
         })
-
+       }, 500);
     }
-    const handleReject=(id)=>{
-        const message={
-            id:id,
-            status:false
-        }
-        axios.post(`https://localhost:7089/api/ApproveBloodRequestByAdmin`,message).then((response)=>{
-            if(!response.data.valid){
-                console.log("invalidemail");
-                
-            }
-            if(response.data.changeStatus){
-                console.log("success");
-                // navigate('/pending')
-                
-
-
-            }else{
-                console.log("failure");
-            }
-        })
-        axios.get(`https://localhost:7089/api/ViewBloodRequest`).then((response) => {
-            setBloodRequest(response.data);
-            console.log(bloodRequest);
-            console.log(response);
-        })
-    }
+   
     return (
         <div className='mainadmin mainbg '>
             <h2 className='mt-3 ms-3'>Blood Request</h2>
@@ -78,9 +57,11 @@ function BloodRequestComponent() {
                             <th scope="col">Email</th>
                             <th scope="col">Age</th>
                             <th scope="col">Blood Type</th>
+                            <th scope="col">Units</th>
+
                             <th scope="col">Mobile Number</th>
                             <th scope="col">Aadhaar Number</th>
-                            <th scope="col">Valid Time</th>
+                            {/* <th scope="col">Valid Time</th> */}
                             <th scope="col">Location</th>
                             <th scope="col">Action</th>
                             
@@ -88,20 +69,23 @@ function BloodRequestComponent() {
                     </thead>
                     <tbody className='bg-transparent rowbody'>
                         {bloodRequest.map((data) => (
+                             
                              <tr className='bg-transparent'>
                              <th scope="row">{data.bloodRequestId}</th>
                              <td>{data.name}</td>
                              <td>{data.email}</td>
                              <td>{data.age}</td>
                              <td>{data.bloodType}</td>
+                             <td>{data.units}</td>
                              <td>{data.phoneNumber}</td>
                              <td>{data.aadhaarNumber}</td>
-                             <td>{data.validTime}</td>
+                             
+                             {/* <td>{data.validTime}</td> */}
                              <td>{data.location}</td>
-                             {data.status==0?<td>
-                                <button className='btn btn-success' onClick={()=>{handleApprove(data.bloodRequestId)}}>Assign</button>
-                                <button className='btn btn-danger ' onClick={()=>{handleReject(data.bloodRequestId)}}>Reject</button>
-                             </td>:data.status==1?<div className='bg-transparent'>Assigned</div>:<div className='bg-transparent'>Rejected</div>}
+                             {data.acceptStatus==0?<td>
+                                <button className='btn btn-success' onClick={()=>{handleAccept(data.bloodRequestId)}}>Accept</button>
+                               
+                             </td>: <button className='btn btn-warning p-1 ms-2' disabled>Accept</button>}
                              
                          </tr>
                         )
@@ -116,4 +100,4 @@ function BloodRequestComponent() {
     )
 }
 
-export default BloodRequestComponent
+export default ViewRequestByBank

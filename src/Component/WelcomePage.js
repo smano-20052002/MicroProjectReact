@@ -1,4 +1,4 @@
-import React, { useState, useRef } from 'react'
+import React, { useState, useRef, useEffect } from 'react'
 import '../Styles/Welcome.css'
 import bg from '../Images/bloodbankbg.png'
 
@@ -6,49 +6,22 @@ import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import Cookies from 'js-cookie';
 function WelcomePage() {
-  const requiredidref =useRef();
-  const [Request, setRequest] = useState({
-    "id": ""
+  const [bloodbank,setbloodBank]=useState([]);
+  const [bloodcamp,setBloodCamp]=useState([]);
+  const navigate =useNavigate();
+  useEffect(()=>{
+    axios.get(`https://localhost:7089/api/ViewAccountRequest/GetAccountDetailsBloodBank`).then((response)=>{
+      setbloodBank(response.data);
+    }).catch((err)=>{
+      console.log(err);
   })
-  const navigate = useNavigate();
-  const [RequestResult, setRequestResult] = useState({
-    "idExists": "",
-    "status": "",
-    "bloodRequestBloodBank": [
-      {
-        "name": "",
-        "location": ""
-      }
-    ]
+  axios.get(`https://localhost:7089/api/ViewBloodCamp/Get`).then((response)=>{
+    setBloodCamp(response.data);
+  }).catch((err)=>{
+    console.log(err)
   })
-  console.log(Request);
-  const [bloodBank, setbloodBank] = useState([
-    {
-      "name": "",
-      "location": ""
-    }
-  ])
-  const idref = useRef();
-  const checkStatus = () => {
-    if (Request.id == "") {
-      requiredidref.current.style.visibility="visible";
-      setTimeout(() => {
-      requiredidref.current.style.visibility="hidden";
-        
-      }, 3000);
-    } else {
-      console.log(Request)
-      axios.post(`https://localhost:7089/api/BloodRequest/CheckStatus` , Request).then((response) => {
-        setRequestResult(response.data)
-        console.log(response);
+  },[])
 
-        setbloodBank(response.data.bloodRequestBloodBank)
-
-      }).catch((err) => {
-        console.log(err);
-      })
-    }
-  }
   return (
 
     <div className='welcomebg'>
@@ -82,65 +55,86 @@ function WelcomePage() {
           </button>
         </div>
       </div>
-      <section style={{ "height": "30vh" }}>
-        <div className='text-center pt-5'>
-          <h4>Check Blood Request Status</h4>
-          <div className='pt-4 px-5 welcomebg d-flex justify-content-center'>
-            <div>
-              <input type="text" className="form-control " style={{ "height": "5vh" }} id="RequestId" placeholder='Enter Request Id' value={Request.id} onChange={(e) => {setRequest({ "id":e.target.value });console.log(Request);}} />
-              <label useRef={idref} className='errmsg'></label>
-            </div>
-            <button className='btn-success ms-3' style={{ "height": "5vh","borderRadius":"5px" }} onClick={() => checkStatus(Request.id)} >Check</button>
-          </div>
+      <section style={{ "height": "50vh" }}>
+        <div className='d-flex justify-content-around flex-wrap '>
+            
+            <section className='welcometablebody mx-5 mt-5 mb-5'>
+                <table className="table " style={{"overflow":"auto"}}>
+                    <thead  className='bg-transparent rowbody'>
+                        <tr >
+
+                            <th scope="col">Camp Name</th>
+                            <th scope="col">Location</th>
+                            <th scope="col">Date</th>
+                            <th scope="col">Time</th>
+                            <th scope="col">Conducted by</th>
+                            {/* {role=="d9157f05-ab6e-49de-b404-ab9b53b1e4e2"&&<>
+                                <th scope='col'>Action</th>
+                            </>} */}
+                            
+                            
+                        </tr>
+                    </thead>
+                    <tbody className='bg-transparent rowbody welcometablesbody'>
+                        {bloodcamp.map((data) => (
+                             <tr className='bg-transparent'>
+                             <th scope="row">{data.bloodCamp.bloodCampName}</th>
+                             <td>{data.bloodCamp.bloodCampLocation}</td>
+                             <td>{data.bloodCamp.date}</td>
+                             <td>{data.bloodCamp.time}</td>
+                             <td>{data.account.name}</td>
+                             {/* {
+                                role=="d9157f05-ab6e-49de-b404-ab9b53b1e4e2"&&
+                                <td>
+                                    <button className='btn btn-danger' onClick={()=>{deleteCamp(data.bloodCamp.bloodCampId)}}>Remove</button>
+                                </td>
+                             }
+                             */}
+                             
+                             
+                         </tr>
+                        )
+                           
+                        )}
+                    </tbody>
+                </table>
+                </section>
+                <section className='welcometablebody mx-5 mt-5 mb-5'>
+                <table className="table " style={{"overflow":"auto"}}>
+                    <thead>
+                        <tr>
+                            <th scope="col">Blood Bank Name</th>
+                            
+                            <th scope="col">Location</th>
+                            
+                            
+                        </tr>
+                    </thead>
+                    <tbody className='bg-transparent rowbody '>
+                    {bloodbank.map((data) => (
+                             <tr className='bg-transparent'>
+                             <th scope="row">{data.name}</th>
+                             <th scope="row">{data.location}</th>
+
+                             
+                            
+                            
+                             
+                             
+                         </tr>
+                        )
+                           
+                        )}
+                    </tbody>
+                </table>
+                </section>
+              
+               
+                
+            
         </div>
-        <div className='mb-5'>
-          <div className='mb-4 welcomebg'>
-            {RequestResult.idExists == true && RequestResult.status == "approved" ? <>
-            <section className='bloodrequestbank mb-4' >
-            <h3>Blood Bank</h3>
-            <table className="table" style={{ "overflow": "auto"}}>
-              <thead>
-                <tr>
-
-                  <th scope="col" >Blood Bank Name</th>
-                  <th scope="col">Location</th>
-                 
-
-
-                </tr>
-              </thead>
-              <tbody className='bg-transparent rowbody'>
-                {bloodBank.map((data) => (
-                  <tr className='bg-transparent'>
-                    <th scope="row">{data.name}</th>
-                    <td>{data.location}</td>
-                  
-
-
-
-                  </tr>
-                )
-
-                )}
-              </tbody>
-            </table>
-          </section>
-            </> : RequestResult.idExists == true && RequestResult.status == "pending" ? <>
-              <h2 className='text-center'>Pending</h2>
-            </> : RequestResult.idExists == true && RequestResult.status == "rejected" ? <>
-              <h2 className='text-center'>rejected</h2>
-            </>:RequestResult.idExists == false && RequestResult.status == null?<>
-                <h2 className='text-center'>Invalid Id</h2>
-            </>:
-            <>
-              <h4 className='text-center' style={{"visibility":"hidden","color":"red"}} ref={requiredidref}>**Required!</h4>
-            </>
-            }
-          </div>
-        </div>
-
       </section>
-     
+      
     </div>
   )
 }

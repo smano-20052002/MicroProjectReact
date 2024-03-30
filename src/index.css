@@ -32,12 +32,14 @@ code {
   margin-top: -2vh;
 }
 .requestmain{
-  height: 120vh;
+  height: 140vh;
   margin-top: -3vh;
 }
+
 .registermain{
   height: 220vh;
   width: 100vw;
+  overflow: hidden;
   margin-top: -3vh;
   
 }
@@ -84,4 +86,22 @@ code {
   padding: 30px;
   border-radius: 20px;
   height: max-content;
+}
+.welcometablebody{
+  border-radius: 5px;
+  height: 200px;
+  overflow-y: auto;
+  width: 450px;
+  background-color: white;
+
+
+}
+.checkmain{
+  height: 94vh;
+  width: 100vw;
+  overflow: hidden;
+  margin-top: -3vh;
+}
+.welcometablebody::-webkit-scrollbar {
+  width: 0;
 }

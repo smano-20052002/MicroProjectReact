@@ -58,7 +58,7 @@ function DonorComponent() {
           <section className='donortablebody'>
             <h3>Blood Camp</h3>
             <table className="table" style={{ "overflow": "auto" }}>
-              <thead>
+              <thead className='bg-transparent rowbody'>
                 <tr>
 
                   <th scope="col" >Camp Name</th>

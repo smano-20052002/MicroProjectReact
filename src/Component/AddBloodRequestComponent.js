@@ -11,6 +11,7 @@ function AddBloodRequestComponent() {
       "phoneNumber": 0,
       "bloodType": "",
       "age": 0,
+      "units":0,
       "location": "",
       "aadhaarNumber": 0,
       "validTime": "",
@@ -22,6 +23,7 @@ function AddBloodRequestComponent() {
   const phoneNumberref = useRef();
   const bloodTyperef = useRef();
   const ageref = useRef();
+  const unitref =useRef();
   const serverref=useRef();
 
   const locationref = useRef();
@@ -33,9 +35,12 @@ function AddBloodRequestComponent() {
   }
   const AddBloodRequest = (e) => {
     e.preventDefault();
-    if (BloodRequest.name == "" || BloodRequest.email == "" || !isValidEmail(BloodRequest.email) || BloodRequest.phoneNumber == 0 || BloodRequest.aadhaarNumber.length != 12 || BloodRequest.phoneNumber.length != 10 || BloodRequest.bloodType == "" || BloodRequest.age == 0 || BloodRequest.location == "" || BloodRequest.aadhaarNumber == 0) {
+    if (BloodRequest.name == "" || BloodRequest.email == "" ||BloodRequest.units==0 || !isValidEmail(BloodRequest.email) || BloodRequest.phoneNumber == 0 || BloodRequest.aadhaarNumber.length != 12 || BloodRequest.phoneNumber.length != 10 || BloodRequest.bloodType == "" || BloodRequest.age == 0 || BloodRequest.location == "" || BloodRequest.aadhaarNumber == 0) {
       if (BloodRequest.name == "") {
         nameref.current.innerText = "**Required!"
+      }
+      if (BloodRequest.units==0) {
+        unitref.current.innerText = "**Required!"
       }
       if (BloodRequest.email == "") {
         emailref.current.innerText = "**Required!"
@@ -150,6 +155,14 @@ function AddBloodRequestComponent() {
             </select> <label ref={bloodTyperef} className='errmsg'></label>
           </div>
         </div>
+        <div className="mb-4 mx-4" >
+
+<div>
+  <label for="unit" class="form-label">Unit</label>
+  <input type="number" class="form-control" id="unit" placeholder='Mobile Number' min="0"max="10" value={BloodRequest.units} onChange={(e) => setBloodRequest({ ...BloodRequest, units: e.target.value })} />
+  <label ref={unitref} className='errmsg'></label>
+</div>
+</div>
         <div className="mb-4 mx-4" >
 
           <div>

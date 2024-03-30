@@ -4,7 +4,7 @@ function RejectComponent() {
   return (
     <section className='main mainbg'>
         <div  className='UnauthorizedContent'>
-            <img src={reject}/>
+            <img src={reject} data-testid='reject-image' alt='reject'/>
         </div>
     </section>
   )

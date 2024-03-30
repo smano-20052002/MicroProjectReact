@@ -38,7 +38,7 @@ function NavBarComponent() {
                   <div class="navbg adminnav min-vh-100">
                     <div class=" navbg p-2">
                       <a class="d-flex text-decoration-none mt-1 align-items-center text-white">
-                        <span class="fs-4 d-none d-sm-inline text-white">Donate</span>
+                        <span class="fs-4 d-none d-sm-inline text-white"><Link to='/admindashboard' className='text-light text-decoration-none'>Donate</Link></span>
             
                       </a>
                       <nav class="nav nav-pills flex-column mt-4">
@@ -96,6 +96,12 @@ function NavBarComponent() {
                           </Link>
                         </li>
                         <li class="nav-item">
+                          <Link to="/viewglobalstock"  class="nav-link text-white" >
+                          <img width="30px" src={bloodcamp} alt=""/><span class=" d-none d-sm-inline ms-3" style={{"fontSize":"20px"}}>All Blood Stock</span>
+            
+                          </Link>
+                        </li>
+                        <li class="nav-item">
                           <button   class="nav-link text-white navbg" onClick={()=>{logout()}}>
                           <img width="30px" src={logoutimg} alt=""/><span class=" d-none d-sm-inline ms-3" style={{"fontSize":"20px"}}>Logout</span>
             
@@ -115,7 +121,7 @@ function NavBarComponent() {
                   <div class="navbg adminnav min-vh-100">
                     <div class="navbg p-2">
                       <a class="d-flex text-decoration-none mt-1 align-items-center text-white">
-                        <span class="fs-4 d-none d-sm-inline text-white">Donate</span>
+                        <span class="fs-4 d-none d-sm-inline text-white"><Link to='/bankhome' className='text-light text-decoration-none'>Donate</Link></span>
             
                       </a>
                       <nav class="nav nav-pills flex-column mt-4">
@@ -169,6 +175,18 @@ function NavBarComponent() {
                           </Link>
                         </li>
                         <li class="nav-item">
+                          <Link to="/viewincomingrequest"  class="nav-link text-white" >
+                          <img width="30px" src={bloodcamp} alt=""/><span class=" d-none d-sm-inline ms-3" style={{"fontSize":"20px"}}>Incoming Request</span>
+            
+                          </Link>
+                        </li>
+                        <li class="nav-item">
+                          <Link to="/viewglobalstock"  class="nav-link text-white" >
+                          <img width="30px" src={bloodcamp} alt=""/><span class=" d-none d-sm-inline ms-3" style={{"fontSize":"20px"}}>All Blood Stock</span>
+            
+                          </Link>
+                        </li>
+                        <li class="nav-item">
                           <button   class="nav-link text-white navbg" onClick={()=>{logout()}}>
                           <img width="30px" src={logoutimg} alt=""/><span class=" d-none d-sm-inline ms-3" style={{"fontSize":"20px"}}>Logout</span>
             
@@ -188,7 +206,7 @@ function NavBarComponent() {
                   <div class="navbg adminnav min-vh-100">
                     <div class="navbg p-2">
                       <a class="d-flex text-decoration-none mt-1 align-items-center text-white">
-                        <span class="fs-4 d-none d-sm-inline text-white">Donate</span>
+                        <span class="fs-4 d-none d-sm-inline text-white"><Link to='/hospitalhome' className='text-light text-decoration-none'>Donate</Link></span>
             
                       </a>
                       <nav class="nav nav-pills flex-column mt-4">
@@ -207,8 +225,21 @@ function NavBarComponent() {
                        
                        
                         <li class="nav-item">
-                          <Link to="/viewbloodbank"  class="nav-link text-white" >
+                          <Link to="/viewbank"  class="nav-link text-white" >
                           <img width="30px" src={bloodbank} alt=""/><span class=" d-none d-sm-inline ms-3" style={{"fontSize":"20px"}}>View Blood Bank</span>
+            
+                          </Link>
+
+                        </li>
+                        <li class="nav-item">
+                          <Link to="/viewcamp"  class="nav-link text-white" >
+                          <img width="30px" src={bloodcamp} alt=""/><span class=" d-none d-sm-inline ms-3" style={{"fontSize":"20px"}}>View Blood Camp</span>
+            
+                          </Link>
+                        </li>
+                        <li class="nav-item">
+                          <Link to="/viewglobalstock"  class="nav-link text-white" >
+                          <img width="30px" src={bloodcamp} alt=""/><span class=" d-none d-sm-inline ms-3" style={{"fontSize":"20px"}}>All Blood Stock</span>
             
                           </Link>
                         </li>
@@ -230,7 +261,7 @@ function NavBarComponent() {
               <section className='navsection'>
                  <nav class="navbar navbar-expand-lg navbar-light navbg fixed-top">
                     <div class="container-fluid">
-                        <a class="navbar-brand" href="#"><img src={logo} width="40px" /><span style={{ marginLeft: '-20px' }} className='text-white'>Donate</span></a>
+                        <a class="navbar-brand" href="#"><img src={logo} width="40px" /><span style={{ marginLeft: '-20px' }} className='text-white'><Link to='/' className='text-light text-decoration-none'>Donate</Link></span></a>
                         {auth.token ? (auth.role == "1cc06485-e084-447a-a138-cd5af7751a14" && auth.token) &&
                             <>
                               
@@ -243,7 +274,10 @@ function NavBarComponent() {
                                 
                             </> :
                             <>
+                                <div>
+                                <button className='btn text-white fs-6' onClick={()=>{navigate('/checkrequest')}}>Blood Request Status</button>
                                 <button className='btn text-white fs-6' onClick={()=>login()}>Login</button>
+                                </div>
                             </>
 
                         }

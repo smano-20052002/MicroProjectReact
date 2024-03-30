@@ -20,7 +20,7 @@ function IndividualBloodStock() {
             <div>
                 <section className='tablebody px-4'>
                     <table className="table " style={{ "overflow": "auto" }}>
-                        <thead>
+                        <thead className='bg-transparent rowbody'>
                             <tr>
 
                                 <th scope="col">Blood Type</th>
@@ -32,8 +32,8 @@ function IndividualBloodStock() {
                         <tbody className='bg-transparent rowbody'>
                             {bloodStock.map((data) => (
                                 <tr className='bg-transparent'>
-                                    <th scope="row">{data.bloodStock.bloodType}</th>
-                                    <td>{data.bloodStock.units}</td>
+                                    <th scope="row">{data.bloodType}</th>
+                                    <td>{data.units}</td>
                                    
 
 

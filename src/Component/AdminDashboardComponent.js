@@ -56,51 +56,51 @@ function AdminDashboardComponent() {
       <div className='d-flex flex-wrap'>
         <div className='mt-5 mx-3 mt-3 mainbox' >
           <h5 className='mt-3 ms-3'>Hospital</h5>
-          <p className='ms-5'>{DashboardValue.hospital}</p>
+          <p className='ms-5' data-testid="hospital">{DashboardValue.hospital}</p>
         </div>
         <div className='mt-5 mx-3 mt-3 mainbox' >
           <h5 className='mt-3 ms-3'>Blood Bank</h5>
-          <p className='ms-5'>{DashboardValue.bloodBank}</p>  
+          <p className='ms-5' data-testid="bloodBank">{DashboardValue.bloodBank}</p>  
         </div>
         <div className='mt-5 mx-3 mt-3 mainbox' >
           <h5 className='mt-3 ms-3'>Donor</h5>
-          <p className='ms-5'>{DashboardValue.donor}</p>
+          <p className='ms-5' data-testid="donor">{DashboardValue.donor}</p>
         </div>
         <div className='mt-5 mx-3 mt-3 mainbox' >
           <h5 className='mt-3 ms-3'>Blood Camp</h5>
-          <p className='ms-5'>{DashboardValue.bloodcamp}</p>
+          <p className='ms-5' data-testid="bloodCamp">{DashboardValue.bloodcamp}</p>
         </div>
         <div className='mt-5 mx-3 mt-3 mainbox' >
           <h5 className='mt-3 ms-3'>Blood Request</h5>
-          <p className='ms-5'>{DashboardValue.bloodRequest}</p>
+          <p className='ms-5' data-testid="bloodRequest">{DashboardValue.bloodRequest}</p>
         </div>
         <div className='mt-5 mx-3 mt-3 mainbox' >
           <h5 className='mt-3 ms-3'>Pending Blood Request</h5>
-        <p className='ms-5'>{DashboardValue.pendingBloodRequest}</p>  
+        <p className='ms-5' data-testid="pendingBloodRequest">{DashboardValue.pendingBloodRequest}</p>  
         </div>
         <div className='mt-5 mx-3 mt-3 mainbox' >
           <h5 className='mt-3 ms-3'>Blood Bank Request</h5>
-          <p className='ms-5'>{DashboardValue.bloodBankPendingRequest}</p>
+          <p className='ms-5' data-testid="bloodBankPendingRequest">{DashboardValue.bloodBankPendingRequest}</p>
         </div>
         <div className='mt-5 mx-3 mt-3 mainbox' >
           <h5 className='mt-3 ms-3'>Donor Request</h5>
-          <p className='ms-5'>{DashboardValue.donorPendingRequest}</p>
+          <p className='ms-5' data-testid="donorPendingRequest">{DashboardValue.donorPendingRequest}</p>
         </div>
         <div className='mt-5 mx-3 mt-3 mainbox' >
           <h5 className='mt-3 ms-3'>Hospital Request</h5>
-        <p className='ms-5'>{DashboardValue.hospitalPendingRequest}</p>  
+        <p className='ms-5' data-testid="hospitalPendingRequest">{DashboardValue.hospitalPendingRequest}</p>  
         </div>
         
       </div>
       <div className='d-flex flex-wrap'>
-        <div className=' mx-3 mt-5 d-flex justify-content-around subbox' ><div className='mt-3 font-weight-bold'><img src={apos}  width="25px" style={{"marginTop":"-5px","marginRight":"5px "}}></img>A+ve</div><span className=' mt-3 ms-5'>{BloodStockValue.apositive}</span></div>
-        <div className=' mx-3 mt-5 d-flex justify-content-around subbox' ><div className='mt-3 font-weight-bold'><img src={bpos}  width="25px" style={{"marginTop":"-5px","marginRight":"5px "}}></img>B+ve</div><span className=' mt-3 ms-5'>{BloodStockValue.bpositive}</span></div>
-        <div className=' mx-3 mt-5 d-flex justify-content-around subbox' ><div className='mt-3 font-weight-bold'><img src={opos}  width="25px" style={{"marginTop":"-5px","marginRight":"5px "}}></img>O+ve</div><span className=' mt-3 ms-5'>{BloodStockValue.opositive}</span></div>
-        <div className=' mx-3 mt-5 d-flex justify-content-around subbox' ><div className='mt-3 font-weight-bold'><img src={abpos} width="25px" style={{"marginTop":"-5px","marginRight":"5px "}}></img>AB+ve</div><span className='mt-3  ms-5'>{BloodStockValue.aBpositive}</span></div>
-        <div className=' mx-3 mt-5 d-flex justify-content-around subbox' ><div className='mt-3 font-weight-bold'><img src={bneg}  width="25px" style={{"marginTop":"-5px","marginRight":"5px "}}></img>B-ve</div><span className=' mt-3 ms-5'>{BloodStockValue.bnegative}</span></div>
-        <div className=' mx-3 mt-5 d-flex justify-content-around subbox' ><div className='mt-3 font-weight-bold'><img src={aneg}  width="25px" style={{"marginTop":"-5px","marginRight":"5px "}}></img>A-ve</div><span className=' mt-3 ms-5'>{BloodStockValue.anegative}</span></div>
-        <div className=' mx-3 mt-5 d-flex justify-content-around subbox' ><div className='mt-3 font-weight-bold'><img src={oneg}  width="25px" style={{"marginTop":"-5px","marginRight":"5px "}}></img>O-ve</div><span className=' mt-3 ms-5'>{BloodStockValue.onegative}</span></div>
-        <div className=' mx-3 mt-5 d-flex justify-content-around subbox' ><div className='mt-3 font-weight-bold'><img src={abneg} width="25px" style={{"marginTop":"-5px","marginRight":"5px "}}></img>AB-ve</div><span className='mt-3  ms-5'>{BloodStockValue.aBnegative}</span></div>
+        <div className=' mx-3 mt-5 d-flex justify-content-around subbox' ><div className='mt-3 font-weight-bold'><img src={apos}  width="25px" style={{"marginTop":"-5px","marginRight":"5px "}}></img>A+ve</div><span className=' mt-3 ms-5'  data-testid="apostive">{BloodStockValue.apositive}</span></div>
+        <div className=' mx-3 mt-5 d-flex justify-content-around subbox' ><div className='mt-3 font-weight-bold'><img src={bpos}  width="25px" style={{"marginTop":"-5px","marginRight":"5px "}}></img>B+ve</div><span className=' mt-3 ms-5'  data-testid="bpostive">{BloodStockValue.bpositive}</span></div>
+        <div className=' mx-3 mt-5 d-flex justify-content-around subbox' ><div className='mt-3 font-weight-bold'><img src={opos}  width="25px" style={{"marginTop":"-5px","marginRight":"5px "}}></img>O+ve</div><span className=' mt-3 ms-5'  data-testid="opostive">{BloodStockValue.opositive}</span></div>
+        <div className=' mx-3 mt-5 d-flex justify-content-around subbox' ><div className='mt-3 font-weight-bold'><img src={abpos} width="25px" style={{"marginTop":"-5px","marginRight":"5px "}}></img>AB+ve</div><span className='mt-3  ms-5' data-testid="abpostive">{BloodStockValue.aBpositive}</span></div>
+        <div className=' mx-3 mt-5 d-flex justify-content-around subbox' ><div className='mt-3 font-weight-bold'><img src={bneg}  width="25px" style={{"marginTop":"-5px","marginRight":"5px "}}></img>B-ve</div><span className=' mt-3 ms-5'  data-testid="bnegative">{BloodStockValue.bnegative}</span></div>
+        <div className=' mx-3 mt-5 d-flex justify-content-around subbox' ><div className='mt-3 font-weight-bold'><img src={aneg}  width="25px" style={{"marginTop":"-5px","marginRight":"5px "}}></img>A-ve</div><span className=' mt-3 ms-5'  data-testid="anegative">{BloodStockValue.anegative}</span></div>
+        <div className=' mx-3 mt-5 d-flex justify-content-around subbox' ><div className='mt-3 font-weight-bold'><img src={oneg}  width="25px" style={{"marginTop":"-5px","marginRight":"5px "}}></img>O-ve</div><span className=' mt-3 ms-5'  data-testid="onegative">{BloodStockValue.onegative}</span></div>
+        <div className=' mx-3 mt-5 d-flex justify-content-around subbox' ><div className='mt-3 font-weight-bold'><img src={abneg} width="25px" style={{"marginTop":"-5px","marginRight":"5px "}}></img>AB-ve</div><span className='mt-3  ms-5' data-testid="abnegative">{BloodStockValue.aBnegative}</span></div>
       </div>
     </div>
   )

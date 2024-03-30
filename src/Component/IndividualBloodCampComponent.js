@@ -5,12 +5,33 @@ import '../Styles/BloodRequest.css';
 import Cookies from 'js-cookie';
 function IndividualBloodCampComponent() {
     const [bloodCamp, setBloodCamp] = useState([]);
+    const deleteCamp = (id) => {
+        axios.delete(`https://localhost:7089/BloodCamp/` + id).then((reponse) => {
+            if (reponse.status == 200) {
+                alert("Deleted Successfully")
+                setTimeout(() => {
+                    axios.get(`https://localhost:7089/api/ViewBloodCamp/GetByIndividual?id=` + Cookies.get("Id")).then((response) => {
+
+                        setBloodCamp(response.data);
+                        console.log(bloodCamp);
+                        console.log(response.data);
+                    }).catch((err) => {
+                        console.log(err);
+                    })
+                }, 1000);
+            } else {
+                alert("Server Error");
+            }
+        })
+    }
     useEffect(() => {
-        axios.get(`https://localhost:7089/api/ViewBloodCamp/GetByIndividual?id=`+Cookies.get("Id")).then((response) => {
-           
+        axios.get(`https://localhost:7089/api/ViewBloodCamp/GetByIndividual?id=` + Cookies.get("Id")).then((response) => {
+
             setBloodCamp(response.data);
             console.log(bloodCamp);
             console.log(response.data);
+        }).catch((err) => {
+            console.log(err);
         })
     }, [])
     return (
@@ -20,7 +41,7 @@ function IndividualBloodCampComponent() {
             <div>
                 <section className='tablebody'>
                     <table className="table" style={{ "overflow": "auto" }}>
-                        <thead>
+                        <thead className='bg-transparent rowbody'>
                             <tr>
 
                                 <th scope="col">Camp Name</th>
@@ -28,6 +49,7 @@ function IndividualBloodCampComponent() {
                                 <th scope="col">Date</th>
                                 <th scope="col">Time</th>
                                 <th scope="col">Conducted by</th>
+                                <th scope='col'>Action</th>
 
 
                             </tr>
@@ -40,6 +62,9 @@ function IndividualBloodCampComponent() {
                                     <td>{data.bloodCamp.date}</td>
                                     <td>{data.bloodCamp.time}</td>
                                     <td>{data.account.name}</td>
+                                    <td>
+                                        <button className='btn btn-danger' onClick={() => { deleteCamp(data.bloodCamp.bloodCampId) }}>Remove</button>
+                                    </td>
 
 
 

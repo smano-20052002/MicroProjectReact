@@ -97,22 +97,22 @@ function ChangePasswordComponent() {
                 <form onSubmit={(e) => changePassword(e)}>
                   <div class="mb-4">
                     <label for="email" class="form-label">Enter Email</label>
-                    <input type="text" class="form-control" id="email" placeholder='Enter your email' value={ChangePassword.email} onChange={(e) => setChangePassword({ ...ChangePassword, email: e.target.value })} />
+                    <input type="text" class="form-control" id="email" placeholder='Enter your email' data-testid="email-input" value={ChangePassword.email} onChange={(e) => setChangePassword({ ...ChangePassword, email: e.target.value })} />
                     <label ref={emailref} className='errmsg'></label>
                   </div>
                   <div class="mb-4">
                     <label for="oldpassword" class="form-label">Enter Old Password</label>
-                    <input type="password" class="form-control" id="oldpassword" placeholder='Enter old password' value={ChangePassword.oldPassword} onChange={(e) => setChangePassword({ ...ChangePassword, oldPassword: e.target.value })} />
+                    <input type="password" class="form-control" id="oldpassword" data-testid="old-password-input" placeholder='Enter old password' value={ChangePassword.oldPassword} onChange={(e) => setChangePassword({ ...ChangePassword, oldPassword: e.target.value })} />
                     <label ref={oldpwdref} className='errmsg'></label>
                   </div>
                   <div class="mb-4">
                     <label for="newpassword" class="form-label">Enter New Password</label>
-                    <input type="password" class="form-control" id="newpassword" placeholder='Enter new password' value={ChangePassword.newPassword} onChange={(e) => setChangePassword({ ...ChangePassword, newPassword: e.target.value })} />
+                    <input type="password" class="form-control" id="newpassword" data-testid="new-password-input" placeholder='Enter new password' value={ChangePassword.newPassword} onChange={(e) => setChangePassword({ ...ChangePassword, newPassword: e.target.value })} />
                     <label ref={newpwdref} className='errmsg'></label>
                   </div>
 
                   <div class="text-center">
-                    <button type="submit" class="btn btn-primary  p-2 text-white mt-2 button">Change Password</button><br />
+                    <button type="submit" data-testid="submit-button" class="btn btn-primary  p-2 text-white mt-2 button">Change Password</button><br />
                    
                   </div>
                 </form>

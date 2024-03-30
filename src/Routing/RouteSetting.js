@@ -11,6 +11,7 @@ import AdminRouting from './AdminRouting'
 import NotFoundComponent from '../Component/NotFoundComponent'
 import UnAuthorizedComponent from '../Component/UnAuthorizedComponent'
 import ViewHospitalComponent from '../Component/ViewHospitalComponent'
+import BloodStockGlobalByHospitalAndBank from '../Component/BloodStockGLobalByHospitalAndBank'
 import ViewDonorComponent from '../Component/ViewDonorComponent'
 import ViewBloodBankComponent from '../Component/ViewBloodBankComponent'
 import ViewBloodCampComponent from '../Component/ViewBloodCampComponent'
@@ -36,6 +37,9 @@ import UpdateBloodTransaction from '../Component/UpdateBloodTransaction'
 import ViewBloodTransaction from '../Component/ViewBloodTransaction'
 import RegisterDonorComponent from '../Component/RegisterDonorComponent'
 import RegisterComponent from '../Component/RegisterComponent'
+import CheckRequestComponent from '../Component/CheckRequestComponent'
+import ViewRequestByBank from '../Component/ViewRequestByBank'
+import ViewBankByHospital from '../Component/ViewBankByHospital'
 
 function RouteSetting() {
 
@@ -51,6 +55,9 @@ function RouteSetting() {
                                 <Route element={<IndividualBloodCampComponent />} path='/bankbloodcamp'></Route>
                                 <Route element={<IndividualBloodStock />} path="/bankbloodstock"></Route>
                                 <Route element={<UpdateBloodTransaction/>} path='/updatebloodtransaction'></Route>
+                                <Route element={<ViewBloodBankComponent />} path="/viewbloodbank" />
+
+                                <Route element={<ViewRequestByBank/>} path='/viewincomingrequest'></Route>
                                 <Route element={<ViewBloodTransaction/>} path='/viewbloodtransaction'></Route>
                                 <Route element={<AddBloodCampComponent />} path='/addbankbloodcamp'></Route>
                                 <Route element={<AddBloodStockComponent />} path='/addbloodstock'></Route>
@@ -59,9 +66,11 @@ function RouteSetting() {
                             <Route element={<AdminRouting />}>
                                 <Route element={<AdminDashboardComponent />} path="/admindashboard" />
                                 <Route element={<ViewHospitalComponent />} path="/viewhospital" />
-                                {/* <Route element={<ViewBloodBankComponent/>} path="/viewbloodbank" /> */}
+                                <Route element={<ViewBloodBankComponent/>} path="/viewbloodbank" />
                                 <Route element={<ViewBloodCampComponent />} path="/viewbloodcamp" />
                                 <Route element={<HospitalRequestComponent />} path='/hospitalrequest'></Route>
+                                <Route element={<ViewBloodBankComponent />} path="/viewbloodbank" />
+
                                 <Route element={<DonorRequestComponent />} path='/donorrequest'></Route>
                                 <Route element={<BloodBankRequestComponent />} path='/bloodbankrequest'></Route>
                                 {/* <Route element={<AccountRequestComponent/>} path="/viewaccountrequest" /> */}
@@ -72,9 +81,13 @@ function RouteSetting() {
                                 <Route element={<DonorComponent />} path='/donorhome'></Route>
                             </Route>
                             <Route element={<BloodBankAdminHospitalRouting />}>
+
                                 <Route element={<ViewDonorComponent />} path="/viewdonor" />
-                                <Route element={<ViewBloodBankComponent />} path="/viewbloodbank" />
+                                <Route element={<BloodStockGlobalByHospitalAndBank/>} path="/viewglobalstock" />
                                 <Route element={<HospitalDashboard />} path="/hospitalhome" />
+                                <Route element={<ViewBloodCampComponent />} path="/viewcamp" />
+                                <Route element={<ViewBankByHospital/>} path='/viewbank'></Route>
+
                                 
 
                             </Route>
@@ -92,6 +105,7 @@ function RouteSetting() {
                         <Route element={<PendingComponent />} path='/pending/:id'></Route>
                         <Route element={<RegisterDonorComponent/>} path='/newdonorrequest'></Route>
                         <Route element={<RegisterComponent/>} path='/register'></Route>
+                        <Route element={<CheckRequestComponent/>} path='/checkrequest'></Route>
                     </Route>
 
                 </Routes>

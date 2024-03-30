@@ -3,7 +3,7 @@ import { useEffect,useState } from 'react';
 import axios from 'axios';
 import '../Styles/BloodRequest.css';
 
-function ViewBloodBankComponent() {
+function ViewBankByHospital() {
     const [hospital, setHospital] = useState([]);
     
     useEffect(() => {
@@ -25,8 +25,8 @@ function ViewBloodBankComponent() {
                             <th scope="col">Blood Bank Name</th>
                             <th scope="col">Email</th>
                             <th scope="col">Mobile Number</th>
-                            <th scope="col">Government Id</th>
-                            <th scope="col">Document</th>
+                            {/* <th scope="col">Government Id</th> */}
+                            {/* <th scope="col">Document</th> */}
                             <th scope="col">Address Details</th>
                             <th scope="col">Location</th>
                             <th scope="col">Approval</th>
@@ -36,12 +36,12 @@ function ViewBloodBankComponent() {
                     </thead>
                     <tbody className='bg-transparent rowbody'>
                     {hospital.map((data) => (
-                             <tr className='bg-transparent' data-testid={`row-${data.id}`}>
+                             <tr className='bg-transparent'>
                              <th scope="row">{data.name}</th>
                              <th scope="row">{data.email}</th>
                              <th scope="row">{data.phoneNumber}</th>
-                             <th scope="row">{data.governmentId}</th>
-                             <th scope="row"><img src={"data:image/png;base64,"+data.document} className='document' width="100px"/></th>
+                             {/* <th scope="row">{data.governmentId}</th> */}
+                             {/* <th scope="row"><img src={"data:image/png;base64,"+data.document} className='document' width="100px"/></th> */}
                              <th scope="row">{data.doorNo}, {data.street},<br/> {data.area},<br/> {data.area},<br/> {data.city},<br/> {data.state}-{data.postalCode}</th>
                              <th scope="row">{data.location}</th>
 
@@ -64,4 +64,4 @@ function ViewBloodBankComponent() {
   )
 }
 
-export default ViewBloodBankComponent
+export default ViewBankByHospital
