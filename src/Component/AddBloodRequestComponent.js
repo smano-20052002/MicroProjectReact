@@ -10,7 +10,7 @@ function AddBloodRequestComponent() {
       "email": "",
       "phoneNumber": 0,
       "bloodType": "",
-      "age": 0,
+      "age": 1,
       "units":0,
       "location": "",
       "aadhaarNumber": 0,
@@ -70,7 +70,7 @@ function AddBloodRequestComponent() {
 
       }
     } else {
-      axios.post(`https://localhost:7089/api/BloodRequest/RequestBlood`, BloodRequest).then((Response) => {
+      axios.post(`http://localhost:8081/api/BloodRequest/RequestBlood`, BloodRequest).then((Response) => {
         console.log(Response.status);
         if (Response.status == 200) {
           serverref.current.style.visibility="visible"
@@ -95,7 +95,7 @@ function AddBloodRequestComponent() {
         "email": "",
         "phoneNumber": 0,
         "bloodType": "",
-        "age": 0,
+        "age": 1,
         "location": "",
         "aadhaarNumber": 0,
         "validTime": "",
@@ -188,7 +188,7 @@ function AddBloodRequestComponent() {
           </div>
         </div>
         <div class="text-center">
-          <button type="submit" class="btn text-dark mt-2 btn-info px-5 py-1">Request Blood</button><br />
+          <button type="submit" class="btn text-dark mt-2 btn-info px-5 py-1" id="submit">Request Blood</button><br />
         </div>
       </form>
     </div>

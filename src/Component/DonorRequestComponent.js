@@ -5,7 +5,7 @@ import '../Styles/BloodRequest.css';
 function DonorRequestComponent() {
     const [donor, setDonor] = useState([]);
     useEffect(()=>{
-        axios.get(`https://localhost:7089/api/ViewAccountRequest/GetAccountDetailsPendingDonor`).then((response) => {
+        axios.get(`http://localhost:8081/api/ViewAccountRequest/GetAccountDetailsPendingDonor`).then((response) => {
             setDonor(response.data);
             console.log(donor);
             console.log(response);
@@ -17,7 +17,7 @@ function DonorRequestComponent() {
             status:true
         }
         console.log(message);
-        axios.post(`https://localhost:7089/api/ApproveOrRejectAccountByAdmin`,message).then((response)=>{
+        axios.post(`http://localhost:8081/api/ApproveOrRejectAccountByAdmin`,message).then((response)=>{
             if(!response.data.valid){
                 console.log("invalidemail");
             }
@@ -27,7 +27,7 @@ function DonorRequestComponent() {
                 console.log("failure");
             }
         })
-        axios.get(`https://localhost:7089/api/ViewAccountRequest/GetAccountDetailsPendingDonor`).then((response) => {
+        axios.get(`http://localhost:8081/api/ViewAccountRequest/GetAccountDetailsPendingDonor`).then((response) => {
             setDonor(response.data);
             console.log(donor);
             console.log(response);
@@ -41,7 +41,7 @@ function DonorRequestComponent() {
         }
         console.log(message);
 
-        axios.post(`https://localhost:7089/api/ApproveOrRejectAccountByAdmin`,message).then((response)=>{
+        axios.post(`http://localhost:8081/api/ApproveOrRejectAccountByAdmin`,message).then((response)=>{
             if(!response.data.valid){
                 console.log("invalidemail");
             }
@@ -52,7 +52,7 @@ function DonorRequestComponent() {
                 console.log("failure");
             }
         })
-        axios.get(`https://localhost:7089/api/ViewAccountRequest/GetAccountDetailsPendingDonor`).then((response) => {
+        axios.get(`http://localhost:8081/api/ViewAccountRequest/GetAccountDetailsPendingDonor`).then((response) => {
             setDonor(response.data);
             console.log(donor);
             console.log(response);

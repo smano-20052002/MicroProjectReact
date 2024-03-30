@@ -9,7 +9,7 @@ function ViewBloodTransaction() {
       id:Cookies.get("Id")
     })
     useEffect(() => {
-        axios.post(`https://localhost:7089/api/BloodTransaction/GetBloodTransaction`,Id).then((response) => {
+        axios.post(`http://localhost:8081/api/BloodTransaction/GetBloodTransaction`,Id).then((response) => {
             setBloodTransaction(response.data);
             console.log(BloodTransaction);
             console.log(response);

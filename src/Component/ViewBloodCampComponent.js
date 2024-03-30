@@ -7,7 +7,7 @@ function ViewBloodCampComponent() {
     const [bloodCamp, setBloodCamp] = useState([]);
     const role=useState(Cookies.get("Role"));
     const deleteCamp=(id)=>{
-        axios.delete(`https://localhost:7089/BloodCamp/`+id).then((reponse)=>{
+        axios.delete(`http://localhost:8081/BloodCamp/`+id).then((reponse)=>{
             if(reponse.status==200){
                 alert("Deleted Successfully")
             }else{
@@ -16,7 +16,7 @@ function ViewBloodCampComponent() {
         })
     }
     useEffect(() => {
-        axios.get(`https://localhost:7089/api/ViewBloodCamp/Get`).then((response) => {
+        axios.get(`http://localhost:8081/api/ViewBloodCamp/Get`).then((response) => {
             setBloodCamp(response.data);
             console.log(bloodCamp);
             console.log(response);

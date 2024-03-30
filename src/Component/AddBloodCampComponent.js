@@ -38,7 +38,7 @@ function AddBloodCampComponent() {
                 timeref.current.innerText="**Required field"
             }
         }else{
-            axios.post(`https://localhost:7089/api/BloodCamp`,BloodCamp).then((Response)=>{
+            axios.post(`http://localhost:8081/api/BloodCamp`,BloodCamp).then((Response)=>{
                 console.log(Response.status);
                 if(Response.status==200){
                     serverref.current.style.visibility="visible"

@@ -5,7 +5,7 @@ import '../Styles/BloodRequest.css';
 function ViewDonorComponent() {
     const [donor, setDonor] = useState([]);
     useEffect(()=>{
-        axios.get(`https://localhost:7089/api/ViewAccountRequest/GetAccountDetailsDonor`).then((response) => {
+        axios.get(`http://localhost:8081/api/ViewAccountRequest/GetAccountDetailsDonor`).then((response) => {
             setDonor(response.data);
             console.log(donor);
             console.log(response);

@@ -41,7 +41,7 @@ function LoginComponent() {
 
     } else {
       //console.log(loginuser);
-      axios.post(`https://localhost:7089/api/Login`, loginuser)
+      axios.post(`http://localhost:8081/api/Login`, loginuser)
         .then((response) => {
           console.log(response.data)
           if (response.data.accountExists) {
@@ -136,7 +136,7 @@ function LoginComponent() {
                   </div>
 
                   <div class="text-center">
-                    <button type="submit" class="btn text-dark mt-2 btn-primary text-white p-2" data-testid="login-button">Login</button><br />
+                    <button type="submit" id="submit" class="btn text-dark mt-2 btn-primary text-white p-2" data-testid="login-button">Login</button><br />
                   </div>
                 </form>
               </div>

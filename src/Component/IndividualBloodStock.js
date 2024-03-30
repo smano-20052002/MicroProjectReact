@@ -6,7 +6,7 @@ import Cookies from 'js-cookie';
 function IndividualBloodStock() {
     const [bloodStock, setBloodStock] = useState([]);
     useEffect(() => {
-        axios.get(`https://localhost:7089/api/ViewBloodStock/ViewBloodStockByIndividual?id=`+Cookies.get("Id")).then((response) => {
+        axios.get(`http://localhost:8081/api/ViewBloodStock/ViewBloodStockByIndividual?id=`+Cookies.get("Id")).then((response) => {
            
             setBloodStock(response.data);
             console.log(bloodStock);

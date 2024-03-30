@@ -32,7 +32,7 @@ function DonorComponent() {
   const [bloodCamp, setBloodCamp] = useState([]);
   const [donorDetails, setDonorDetails] = useState([]);
   useEffect(() => {
-    axios.get(`https://localhost:7089/api/ViewBloodCamp/Get`).then((response) => {
+    axios.get(`http://localhost:8081/api/ViewBloodCamp/Get`).then((response) => {
       setBloodCamp(response.data);
       console.log(bloodCamp);
       console.log(response);
@@ -40,7 +40,7 @@ function DonorComponent() {
   }, [])
   useEffect(() => {
 
-    axios.get(`https://localhost:7089/api/ViewAccountRequest/GetDonorById?id=` + Cookies.get("Id")).then((response) => {
+    axios.get(`http://localhost:8081/api/ViewAccountRequest/GetDonorById?id=` + Cookies.get("Id")).then((response) => {
       setDonorDetails(response.data);
       console.log(donorDetails);
       console.log(donorDetails);

@@ -29,7 +29,7 @@ function AddBloodStockComponent() {
             }
 
         } else {
-            axios.post(`https://localhost:7089/api/BloodStock`, BloodStock).then((Response) => {
+            axios.post(`http://localhost:8081/api/BloodStock`, BloodStock).then((Response) => {
                 console.log(Response.status);
                 if (Response.status == 200) {
                     serverref.current.style.visibility="visible"

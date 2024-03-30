@@ -38,7 +38,7 @@ function CheckRequestComponent() {
       }, 3000);
     } else {
       console.log(Request)
-      axios.post(`https://localhost:7089/api/BloodRequest/CheckStatus` , Request).then((response) => {
+      axios.post(`http://localhost:8081/api/BloodRequest/CheckStatus` , Request).then((response) => {
         setRequestResult(response.data)
         console.log(response);
 
@@ -47,7 +47,7 @@ function CheckRequestComponent() {
       }).catch((err) => {
         console.log(err);
       })
-      axios.get(`https://localhost:7089/GetBank/` +Request.id ).then((response) => {
+      axios.get(`http://localhost:8081/GetBank/` +Request.id ).then((response) => {
         setAcceptBank([...response.data])
         console.log(response);
 

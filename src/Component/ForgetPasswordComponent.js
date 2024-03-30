@@ -33,7 +33,7 @@ function ForgetPasswordComponent() {
 
 
     } else {
-      axios.post(`https://localhost:7089/api/ForgetPassword`, ForgetPassword).then((response) => {
+      axios.post(`http://localhost:8081/api/ForgetPassword`, ForgetPassword).then((response) => {
         console.log(response);
 
         if (response.data.emailExists == true && response.data.sendMail == true) {

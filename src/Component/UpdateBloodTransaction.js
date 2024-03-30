@@ -37,7 +37,7 @@ function UpdateBloodTransaction() {
   const unitsref = useRef();
    const getstock=(type)=>{
         setBloodTransaction({...BloodTransaction,units:0})
-        axios.get(`https://localhost:7089/api/BloodStock/GetStockByBank/`+Cookies.get("Id")+`/`+type).then((Response)=>{
+        axios.get(`http://localhost:8081/api/BloodStock/GetStockByBank/`+Cookies.get("Id")+`/`+type).then((Response)=>{
             console.log(Response.data)
             setBloodStockForm(Response.data)
 
@@ -63,7 +63,7 @@ function UpdateBloodTransaction() {
       }
     
     } else {
-      axios.post(`https://localhost:7089/api/BloodTransaction/AddBloodTransaction`, BloodTransaction).then((Response) => {
+      axios.post(`http://localhost:8081/api/BloodTransaction/AddBloodTransaction`, BloodTransaction).then((Response) => {
         console.log(Response.status);
         if (Response.status == 200) {
           serverref.current.style.visibility="visible"

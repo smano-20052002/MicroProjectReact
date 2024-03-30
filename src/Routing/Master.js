@@ -9,7 +9,7 @@ function Master() {
     useEffect(()=>{
         setTimeout(() => {
             setIsLoading(false);
-        }, 2000);
+        }, 0);
     });
    
 

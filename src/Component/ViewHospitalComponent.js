@@ -7,7 +7,7 @@ function ViewHospitalComponent() {
     const [hospital, setHospital] = useState([]);
     
     useEffect(() => {
-        axios.get(`https://localhost:7089/api/ViewAccountRequest/GetAccountDetailsHospital`).then((response) => {
+        axios.get(`http://localhost:8081/api/ViewAccountRequest/GetAccountDetailsHospital`).then((response) => {
             setHospital(response.data);
             console.log(hospital);
             console.log(response);

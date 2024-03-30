@@ -50,7 +50,7 @@ function ChangePasswordComponent() {
      
       
     }else{
-      axios.post(`https://localhost:7089/api/ChangePassword`,ChangePassword).then((response)=>{
+      axios.post(`http://localhost:8081/api/ChangePassword`,ChangePassword).then((response)=>{
         console.log(response);
         if(response.data.emailExists==true && response.data.passcheck==true){
           navigate('/login')

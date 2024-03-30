@@ -7,7 +7,7 @@ function BloodRequestComponent() {
     // const navigate= useNavigate();
     const [bloodRequest, setBloodRequest] = useState([]);
     useEffect(() => {
-        axios.get(`https://localhost:7089/api/ViewBloodRequest`).then((response) => {
+        axios.get(`http://localhost:8081/api/ViewBloodRequest`).then((response) => {
             setBloodRequest(response.data);
             console.log(bloodRequest);
             console.log(response);
@@ -18,7 +18,7 @@ function BloodRequestComponent() {
             id:id,
             status:true
         }
-        axios.post(`https://localhost:7089/api/ApproveBloodRequestByAdmin`,message,{
+        axios.post(`http://localhost:8081/api/ApproveBloodRequestByAdmin`,message,{
             headers: {
               'Authorization': 'Bearer ' + Cookies.get('Token')
             }}).then((response)=>{
@@ -31,7 +31,7 @@ function BloodRequestComponent() {
                 console.log("failure");
             }
         })
-        axios.get(`https://localhost:7089/api/ViewBloodRequest`).then((response) => {
+        axios.get(`http://localhost:8081/api/ViewBloodRequest`).then((response) => {
             setBloodRequest(response.data);
             console.log(bloodRequest);
             console.log(response);
@@ -43,7 +43,7 @@ function BloodRequestComponent() {
             id:id,
             status:false
         }
-        axios.post(`https://localhost:7089/api/ApproveBloodRequestByAdmin`,message).then((response)=>{
+        axios.post(`http://localhost:8081/api/ApproveBloodRequestByAdmin`,message).then((response)=>{
             if(!response.data.valid){
                 console.log("invalidemail");
                 
@@ -58,7 +58,7 @@ function BloodRequestComponent() {
                 console.log("failure");
             }
         })
-        axios.get(`https://localhost:7089/api/ViewBloodRequest`).then((response) => {
+        axios.get(`http://localhost:8081/api/ViewBloodRequest`).then((response) => {
             setBloodRequest(response.data);
             console.log(bloodRequest);
             console.log(response);
