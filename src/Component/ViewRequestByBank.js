@@ -9,7 +9,7 @@ function ViewRequestByBank() {
     const [isDisabled, setIsDisabled] = useState(false);
     const dis=useRef();
     useEffect(() => {
-        axios.get(`https://localhost:7089/Get/`+Cookies.get("Id")).then((response) => {
+        axios.get(`http://localhost:8081/Get/`+Cookies.get("Id")).then((response) => {
             setBloodRequest(response.data);
             console.log(bloodRequest);
             console.log(response);
@@ -20,7 +20,7 @@ function ViewRequestByBank() {
             requesterId: id,
             accountId: Cookies.get("Id")
           }
-        axios.post(`https://localhost:7089/api/AcceptRequesterByBank`,message,{
+        axios.post(`http://localhost:8081/api/AcceptRequesterByBank`,message,{
             headers: {
               'Authorization': 'Bearer ' + Cookies.get('Token')
             }}).then((response)=>{
@@ -35,7 +35,7 @@ function ViewRequestByBank() {
             //setIsDisabled(true);
         })
        setTimeout(() => {
-        axios.get(`https://localhost:7089/Get/`+Cookies.get("Id")).then((response) => {
+        axios.get(`http://localhost:8081/Get/`+Cookies.get("Id")).then((response) => {
             setBloodRequest(response.data);
             console.log(bloodRequest);
             console.log(response);

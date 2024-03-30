@@ -36,13 +36,13 @@ function BloodBankComponent() {
     });
   
   useEffect(()=>{
-    axios.get(`https://localhost:7089/api/AdminDashboard/GetBasicDetails`).then((Response)=>{
+    axios.get(`http://localhost:8081/api/AdminDashboard/GetBasicDetails`).then((Response)=>{
       setDashboardValue(Response.data)
       console.log(DashboardValue);
     }).catch((err)=>{
       console.log(err);
     })
-    axios.get(`https://localhost:7089/api/AdminDashboard/GetBloodStockDetailsByIndividualBank?Id=`+Cookies.get("Id")).then((Response)=>{
+    axios.get(`http://localhost:8081/api/AdminDashboard/GetBloodStockDetailsByIndividualBank?Id=`+Cookies.get("Id")).then((Response)=>{
       setBloodStockValue(Response.data)
       console.log(DashboardValue);
     }).catch((err)=>{

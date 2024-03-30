@@ -7,7 +7,7 @@ function BloodBankRequestComponent() {
     const [hospital, setHospital] = useState([]);
     
     useEffect(() => {
-        axios.get(`https://localhost:7089/api/ViewAccountRequest/GetAccountDetailsPendingBloodBank`).then((response) => {
+        axios.get(`http://localhost:8081/api/ViewAccountRequest/GetAccountDetailsPendingBloodBank`).then((response) => {
             setHospital(response.data);
             console.log(hospital);
             console.log(response);
@@ -18,7 +18,7 @@ function BloodBankRequestComponent() {
             id:id,
             status:true
         }
-        axios.post(`https://localhost:7089/api/ApproveOrRejectAccountByAdmin`,message).then((response)=>{
+        axios.post(`http://localhost:8081/api/ApproveOrRejectAccountByAdmin`,message).then((response)=>{
             if(!response.data.valid){
                 console.log("invalidemail");
             }
@@ -28,7 +28,7 @@ function BloodBankRequestComponent() {
                 console.log("failure");
             }
         })
-        axios.get(`https://localhost:7089/api/ViewAccountRequest/GetAccountDetailsPendingBloodBank`).then((response) => {
+        axios.get(`http://localhost:8081/api/ViewAccountRequest/GetAccountDetailsPendingBloodBank`).then((response) => {
             setHospital(response.data);
             console.log(hospital);
             console.log(response);
@@ -40,7 +40,7 @@ function BloodBankRequestComponent() {
             id:id,
             status:false
         }
-        axios.post(`https://localhost:7089/api/ApproveOrRejectAccountByAdmin`,message).then((response)=>{
+        axios.post(`http://localhost:8081/api/ApproveOrRejectAccountByAdmin`,message).then((response)=>{
             if(!response.data.valid){
                 console.log("invalidemail");
             }
@@ -52,7 +52,7 @@ function BloodBankRequestComponent() {
                 console.log("failure");
             }
         })
-        axios.get(`https://localhost:7089/api/ViewAccountRequest/GetAccountDetailsPendingBloodBank`).then((response) => {
+        axios.get(`http://localhost:8081/api/ViewAccountRequest/GetAccountDetailsPendingBloodBank`).then((response) => {
             setHospital(response.data);
             console.log(hospital);
             console.log(response);

@@ -122,7 +122,7 @@ function RegisterComponent() {
 
       }
     } else {
-      axios.post(`https://localhost:7089/api/Register/PostUser`, Register).then((Response) => {
+      axios.post(`http://localhost:8081/api/Register/PostUser`, Register).then((Response) => {
         if (Response.data.emailExists == false && Response.data.mobileNumberExists == false) {
           setRegister({
             "name": "",
@@ -130,7 +130,7 @@ function RegisterComponent() {
             "password": "",
             "phoneNumber": 0,
             "role": "DONOR",
-            "age": 0,
+            "age": 15,
             "bloodType": "",
             "location": "",
             "governmentId": "",
@@ -292,7 +292,7 @@ function RegisterComponent() {
         </div>
 
         <div class="text-center">
-          <button type="submit" class="btn text-dark mt-2 btn-info px-5 py-1">Register</button><br />
+          <button type="submit" id="submit" class="btn text-dark mt-2 btn-info px-5 py-1">Register</button><br />
         </div>
       </form>
     </div>

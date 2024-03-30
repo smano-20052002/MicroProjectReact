@@ -7,7 +7,7 @@ function HospitalRequestComponent() {
     const [hospital, setHospital] = useState([]);
     
     useEffect(() => {
-        axios.get(`https://localhost:7089/api/ViewAccountRequest/GetAccountDetailsPendingHospital`).then((response) => {
+        axios.get(`http://localhost:8081/api/ViewAccountRequest/GetAccountDetailsPendingHospital`).then((response) => {
             setHospital(response.data);
             console.log(hospital);
             console.log(response);
@@ -19,7 +19,7 @@ function HospitalRequestComponent() {
             status:true
         }
         console.log(message)
-        axios.post(`https://localhost:7089/api/ApproveOrRejectAccountByAdmin`,message).then((response)=>{
+        axios.post(`http://localhost:8081/api/ApproveOrRejectAccountByAdmin`,message).then((response)=>{
             if(!response.data.valid){
                 console.log("invalidemail");
             }
@@ -31,7 +31,7 @@ function HospitalRequestComponent() {
                 console.log("failure");
             }
         })
-        axios.get(`https://localhost:7089/api/ViewAccountRequest/GetAccountDetailsPendingHospital`).then((response) => {
+        axios.get(`http://localhost:8081/api/ViewAccountRequest/GetAccountDetailsPendingHospital`).then((response) => {
             setHospital(response.data);
             console.log(hospital);
             console.log(response);
@@ -43,7 +43,7 @@ function HospitalRequestComponent() {
             id:id,
             status:false
         }
-        axios.post(`https://localhost:7089/api/ApproveOrRejectAccountByAdmin`,message).then((response)=>{
+        axios.post(`http://localhost:8081/api/ApproveOrRejectAccountByAdmin`,message).then((response)=>{
             if(!response.data.valid){
                 console.log("invalidemail");
             }
@@ -53,7 +53,7 @@ function HospitalRequestComponent() {
                 console.log("failure");
             }
         })
-        axios.get(`https://localhost:7089/api/ViewAccountRequest/GetAccountDetailsPendingHospital`).then((response) => {
+        axios.get(`http://localhost:8081/api/ViewAccountRequest/GetAccountDetailsPendingHospital`).then((response) => {
             setHospital(response.data);
             console.log(hospital);
             console.log(response);

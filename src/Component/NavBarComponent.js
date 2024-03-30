@@ -275,7 +275,7 @@ function NavBarComponent() {
                             </> :
                             <>
                                 <div>
-                                <button className='btn text-white fs-6' onClick={()=>{navigate('/checkrequest')}}>Blood Request Status</button>
+                                <button className='btn text-white fs-6' id="bloodrequestinwelcome" onClick={()=>{navigate('/checkrequest')}}>Blood Request Status</button>
                                 <button className='btn text-white fs-6' onClick={()=>login()}>Login</button>
                                 </div>
                             </>

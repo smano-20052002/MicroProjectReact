@@ -9,7 +9,7 @@ function BloodStockGlobalByHospitalAndBank() {
     const [search, setSearch] = useState("");
     const [filteredData, setFilteredData] = useState(null);
     useEffect(() => {
-        axios.get(`https://localhost:7089/api/ViewBloodStockasWhole`).then((response) => {
+        axios.get(`http://localhost:8081/api/ViewBloodStockasWhole`).then((response) => {
             setHospital(response.data);
             setFilteredData(response.data)
             console.log(hospital);

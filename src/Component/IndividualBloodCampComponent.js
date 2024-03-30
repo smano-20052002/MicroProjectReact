@@ -6,11 +6,11 @@ import Cookies from 'js-cookie';
 function IndividualBloodCampComponent() {
     const [bloodCamp, setBloodCamp] = useState([]);
     const deleteCamp = (id) => {
-        axios.delete(`https://localhost:7089/BloodCamp/` + id).then((reponse) => {
+        axios.delete(`http://localhost:8081/BloodCamp/` + id).then((reponse) => {
             if (reponse.status == 200) {
                 alert("Deleted Successfully")
                 setTimeout(() => {
-                    axios.get(`https://localhost:7089/api/ViewBloodCamp/GetByIndividual?id=` + Cookies.get("Id")).then((response) => {
+                    axios.get(`http://localhost:8081/api/ViewBloodCamp/GetByIndividual?id=` + Cookies.get("Id")).then((response) => {
 
                         setBloodCamp(response.data);
                         console.log(bloodCamp);
@@ -25,7 +25,7 @@ function IndividualBloodCampComponent() {
         })
     }
     useEffect(() => {
-        axios.get(`https://localhost:7089/api/ViewBloodCamp/GetByIndividual?id=` + Cookies.get("Id")).then((response) => {
+        axios.get(`http://localhost:8081/api/ViewBloodCamp/GetByIndividual?id=` + Cookies.get("Id")).then((response) => {
 
             setBloodCamp(response.data);
             console.log(bloodCamp);

@@ -10,12 +10,12 @@ function WelcomePage() {
   const [bloodcamp,setBloodCamp]=useState([]);
   const navigate =useNavigate();
   useEffect(()=>{
-    axios.get(`https://localhost:7089/api/ViewAccountRequest/GetAccountDetailsBloodBank`).then((response)=>{
+    axios.get(`http://localhost:8081/api/ViewAccountRequest/GetAccountDetailsBloodBank`).then((response)=>{
       setbloodBank(response.data);
     }).catch((err)=>{
       console.log(err);
   })
-  axios.get(`https://localhost:7089/api/ViewBloodCamp/Get`).then((response)=>{
+  axios.get(`http://localhost:8081/api/ViewBloodCamp/Get`).then((response)=>{
     setBloodCamp(response.data);
   }).catch((err)=>{
     console.log(err)
@@ -57,7 +57,8 @@ function WelcomePage() {
       </div>
       <section style={{ "height": "50vh" }}>
         <div className='d-flex justify-content-around flex-wrap '>
-            
+            <section>
+            <h5 className='mx-5 mt-3'>Blood Camp:</h5>
             <section className='welcometablebody mx-5 mt-5 mb-5'>
                 <table className="table " style={{"overflow":"auto"}}>
                     <thead  className='bg-transparent rowbody'>
@@ -99,7 +100,11 @@ function WelcomePage() {
                     </tbody>
                 </table>
                 </section>
-                <section className='welcometablebody mx-5 mt-5 mb-5'>
+
+            </section>
+           <section>
+           <h5 className='mx-5 mt-3'>Blood Bank</h5>
+           <section className='welcometablebody mx-5 mt-5 mb-5'>
                 <table className="table " style={{"overflow":"auto"}}>
                     <thead>
                         <tr>
@@ -128,6 +133,8 @@ function WelcomePage() {
                     </tbody>
                 </table>
                 </section>
+           </section>
+             
               
                
                 
